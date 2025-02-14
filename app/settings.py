@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    "steam_profile_finder"
 ]
 
 MIDDLEWARE = [
@@ -53,6 +54,8 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "app.urls"
+
+AUTH_USER_MODEL = 'steam_profile_finder.User'
 
 TEMPLATES = [
     {
@@ -75,10 +78,11 @@ WSGI_APPLICATION = "app.wsgi.application"
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
+
 DATABASES = {
     "default": {
          "ENGINE": f"django.db.backends.{os.getenv("DATABASE_ENGINE", "sqlite3")}",
-         "NAME": os.getenv("DATABASE_NAME", "polls"),
+         "NAME": os.getenv("DATABASE_NAME", "steam_profile_finder_data.db"),
          "USER": os.getenv("DATABASE_USERNAME", "myprojectuser"),
          "PASSWORD": os.getenv("DATABASE_PASSWORD", "password"),
          "HOST": os.getenv("DATABASE_HOST", "127.0.0.1"),
